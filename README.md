@@ -22,7 +22,25 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+
+Add line below to `Capifile`.
+
+```ruby
+require "capistrano/running_process_check"
+```
+
+Please append process names to disallow running while deployment.
+
+```ruby
+append :disallowed_running_processes, "webpack"
+```
+
+When you run `cap` command (with stage name), checks running process. And if it is running, prints message below and abort deployment.
+
+        ================================================================================
+        !!! Some `webpack` process(es) are running. Please kill them. !!!
+        ================================================================================
+
 
 ## Development
 
