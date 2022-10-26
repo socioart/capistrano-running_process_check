@@ -30,13 +30,13 @@ require "capistrano/running_process_check"
 Please append process names to disallow running while deployment.
 
 ```ruby
-append :disallowed_running_processes, "webpack"
+append :disallowed_running_processes, /foo/, "bar"
 ```
 
 When you run `cap` command (with stage name), checks running process. And if it is running, prints message below and abort deployment.
 
         ================================================================================
-        !!! Some `webpack` process(es) are running. Please kill them. !!!
+        !!! Some /foo/ process(es) are running. Please kill them. !!!
         ================================================================================
 
 
